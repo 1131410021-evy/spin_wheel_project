@@ -10,21 +10,42 @@
         <h1>🎡 轉盤抽獎系統</h1>
         <div class="main-content">
             <div class="left-panel">
-                <h3>獎品列表</h3>
-                <textarea id="prizes">大獎\n二獎\n三獎</textarea>
-                <h3>抽獎者列表</h3>
-                <textarea id="participants">小明\n小華\n小紅</textarea>
-                <div class="buttons">
-                    <button onclick="spin()">開始抽獎</button>
+                <div class="input-group">
+                    <label>獎品列表</label>
+                    <textarea id="prizes">頭獎\n二獎\n三獎\n神秘禮物\n精美文具\n安慰獎</textarea>
                 </div>
-                <div id="result-display">
-                    <strong>得獎結果：</strong><span id="winner-text">尚未抽獎</span>
+                <div class="input-group">
+                    <label>抽獎者列表</label>
+                    <textarea id="participants">武氏玉映\n甲氏秋和\n藍廷郁\n亞莉珊\n簡艾波\n卡莉兒\n克里斯</textarea>
+                </div>
+                <div class="button-group">
+                    <button class="btn-blue" onclick="drawWheel()">更新名單</button>
+                    <button class="btn-primary" onclick="spin()">開始抽獎</button>
+                    <button class="btn-gray" onclick="clearHistory()">清除得獎紀錄</button>
+                </div>
+                <div class="result-box">
+                    <h3>本次抽獎結果</h3>
+                    <p>獎品：<span id="res-prize">-</span></p>
+                    <p>得獎者：<span id="res-name">-</span></p>
                 </div>
             </div>
             <div class="right-panel">
-                <div id="wheel-container">
+                <div class="wheel-area">
                     <div id="pointer">▼</div>
-                    <canvas id="wheelCanvas" width="400" height="400"></canvas>
+                    <canvas id="wheelCanvas" width="450" height="450"></canvas>
+                </div>
+                <div class="history-area">
+                    <h3>得獎紀錄</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>序號</th>
+                                <th>獎品</th>
+                                <th>得獎者</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-body"></tbody>
+                    </table>
                 </div>
             </div>
         </div>
