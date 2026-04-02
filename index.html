@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>轉盤抽獎系統</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>🎡 轉盤抽獎系統</h1>
+
+        <div class="layout">
+            <div class="left-panel">
+                <h2>設定抽獎項目</h2>
+                <textarea id="optionsInput" rows="10">{{ options | join('\n') }}</textarea>
+                <button id="updateBtn">更新轉盤</button>
+                <button id="spinBtn">開始抽獎</button>
+
+                <div class="result-box">
+                    <h3>抽獎結果</h3>
+                    <p id="resultText">尚未抽獎</p>
+                </div>
+            </div>
+
+            <div class="right-panel">
+                <div class="wheel-wrapper">
+                    <div class="pointer">▼</div>
+                    <canvas id="wheelCanvas" width="500" height="500"></canvas>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const initialOptions = {{ options | tojson }};
+    </script>
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
